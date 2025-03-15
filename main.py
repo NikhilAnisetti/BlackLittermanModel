@@ -72,15 +72,21 @@ def black_litterman_optimization(tickers_views, market_caps={}, period="10y", ri
     #Compute Portfolio Performance
     expected_return, volatility, sharpe_ratio = ef.portfolio_performance(verbose=False)
 
+    # Format Results
+    opt_weights = dict(ef.clean_weights())
+    exp_ret = float(round(expected_return,2))
+    vol = float(round(volatility,4))
+    sharpe = float(round(sharpe_ratio,2))
+    
+
     #Return results as dictionaries
     return {
-        "optimized_weights": ef.clean_weights(),
-        "portfolio_performance": {
-            "expected_annual_return": expected_return,
-            "volatility": volatility,
-            "sharpe_ratio": sharpe_ratio
-        }
-    }
+            "Optimized Weights": opt_weights,
+            "Portfolio Performance": {
+                "Expected Annual Return": exp_ret,
+                "Volatility": vol,
+                "Sharpe Ratio": sharpe
+            }}
     
 
 # Define stock tickers and expected returns
@@ -97,4 +103,9 @@ market_caps = {
 
 result = black_litterman_optimization(tickers_views, period="10y")
 print("Portfolio Performance:", result["portfolio_performance"])
+
+
+
+
+
 
