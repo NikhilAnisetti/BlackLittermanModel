@@ -89,20 +89,68 @@ def black_litterman_optimization(tickers_views, market_caps={}, period="10y", ri
             }}
     
 
-# Define stock tickers and expected returns
-tickers_views = {"AAPL": 0.20, "BBY": -0.30, "BAC": 0, "SBUX": -0.2, "T": 0.15}
 
-# Define market capitalizations for the assets, not used here
-market_caps = {
-    "AAPL": 2.8e12,
-    "BBY": 0.02e12,
-    "BAC": 0.34e12,
-    "SBUX": 0.09e12,
-    "T": 0.14e12
+# Example: SPLIT BY DIFFERENT INDUSTRIES
+
+"""
+
+# ENERGY
+
+tickers_views_energy = {"XOM": 0, "CVX": 0, "COP": 0, "HES": 0, "OXY": 0, "EOG": 0, 
+    "MPC": 0, "PSX": 0, "VLO": 0, "ENB": 0, "SU": 0, "CNQ": 0,
+    "CVE": 0, "IMO": 0, "BP": 0, "EQNR": 0, "IBE": 0, "WMB": 0, "OKE": 0, "ET": 0,
+    "HOU": 0, "CQP": 0, "BKR": 0, "TRGP": 0, "TGTX": 0, "AR": 0, "VLO": 0, "KMI": 0, "PPL": 0, "DUK": 0, "XEL": 0}
+
+
+
+energy = black_litterman_optimization(tickers_views_energy, period="10y")
+print(energy)
+
+
+
+"""
+
+
+
+
+""""
+
+# CONSUMER GOODS
+
+
+tickers_views_cg = {
+    "PG": 0, "KO": 0, "PEP": 0, "JNJ": 0, "CL": 0, "UL": 0, 
+    "GIS": 0, "KMB": 0, "MDLZ": 0, "COLM": 0, "EL": 0, "MCD": 0, 
+    "PM": 0, "HSY": 0, "CAG": 0, "LRLCF": 0, "KHC": 0, "OR": 0,
+    "DGE": 0, "IMB": 0, "RB": 0, "BN": 0, "7203.T": 0, 
+    "005930.KS": 0, "066570.KS": 0, "CX": 0, "BABA": 0, "AMZN": 0, "TGT": 0, "WMT": 0, "COST": 0, "TJX": 0, "LOW": 0, 
+    "NKE": 0, "SBUX": 0, "K": 0}
+
+
+    
+consumer_goods = black_litterman_optimization(tickers_views_cg, period = "10y")
+print(consumer_goods)
+
+
+"""
+
+
+# Industrial Materials
+
+
+tickers_views_im = {
+    "LIN": 0, "NEM": 0, "SCCO": 0, "RIO": 0, "VMC": 0,
+    "APD": 0, "DD": 0, "VALE": 0, "XOM": 0, "LMT": 0, "MMM": 0,
+    "CAT": 0, "DE": 0, "GE": 0, "CSX": 0, "ECL": 0, "DOW": 0, "FCX": 0, "FLS": 0,
+    "JCI": 0, "AME": 0, "IP": 0, "PKG": 0, "EMR": 0, "X": 0, "GWW": 0, "CNI": 0, 
+    "ITW": 0, "HON": 0, "IEX": 0, "RS": 0, "STLD": 0, "NUE": 0, "VLO": 0,
+    "PHM": 0, "TMO": 0
 }
 
-result = black_litterman_optimization(tickers_views, period="10y")
-print("Portfolio Performance:", result["portfolio_performance"])
+
+industrial_materials = black_litterman_optimization(tickers_views_im, period = "10y")
+print(industrial_materials)
+
 
 
 
