@@ -60,7 +60,6 @@ def black_litterman_optimization(tickers_views, market_caps={}, period="10y", ri
     delta = black_litterman.market_implied_risk_aversion(df) * risk_aversion_scale  # Scale down delta
     pi = black_litterman.market_implied_prior_returns(market_weights, delta, cov_matrix_df)
 
-    #Run Black-Litterman Model
     bl = BlackLittermanModel(cov_matrix_df, pi=pi, tickers=assets, absolute_views=tickers_views)
     bl_returns = bl.bl_returns() * 252  # Annualize returns
     bl_cov_matrix = bl.bl_cov()
@@ -113,7 +112,7 @@ print(energy)
 
 
 
-""""
+
 
 # CONSUMER GOODS
 
@@ -132,24 +131,24 @@ consumer_goods = black_litterman_optimization(tickers_views_cg, period = "10y")
 print(consumer_goods)
 
 
-"""
+
 
 
 # Industrial Materials
 
 
-tickers_views_im = {
-    "LIN": 0, "NEM": 0, "SCCO": 0, "RIO": 0, "VMC": 0,
-    "APD": 0, "DD": 0, "VALE": 0, "XOM": 0, "LMT": 0, "MMM": 0,
-    "CAT": 0, "DE": 0, "GE": 0, "CSX": 0, "ECL": 0, "DOW": 0, "FCX": 0, "FLS": 0,
-    "JCI": 0, "AME": 0, "IP": 0, "PKG": 0, "EMR": 0, "X": 0, "GWW": 0, "CNI": 0, 
-    "ITW": 0, "HON": 0, "IEX": 0, "RS": 0, "STLD": 0, "NUE": 0, "VLO": 0,
-    "PHM": 0, "TMO": 0
-}
+# tickers_views_im = {
+#     "LIN": 0, "NEM": 0, "SCCO": 0, "RIO": 0, "VMC": 0,
+#     "APD": 0, "DD": 0, "VALE": 0, "XOM": 0, "LMT": 0, "MMM": 0,
+#     "CAT": 0, "DE": 0, "GE": 0, "CSX": 0, "ECL": 0, "DOW": 0, "FCX": 0, "FLS": 0,
+#     "JCI": 0, "AME": 0, "IP": 0, "PKG": 0, "EMR": 0, "X": 0, "GWW": 0, "CNI": 0, 
+#     "ITW": 0, "HON": 0, "IEX": 0, "RS": 0, "STLD": 0, "NUE": 0, "VLO": 0,
+#     "PHM": 0, "TMO": 0
+# }
 
 
-industrial_materials = black_litterman_optimization(tickers_views_im, period = "10y")
-print(industrial_materials)
+# industrial_materials = black_litterman_optimization(tickers_views_im, period = "10y")
+# print(industrial_materials)
 
 
 
