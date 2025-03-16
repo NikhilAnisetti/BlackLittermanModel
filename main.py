@@ -4,13 +4,25 @@ from collections import OrderedDict
 import pprint
 import csv
 
-INDUSTRY = 'CHANGEME'
-ticker_list = ["PG", "KO", "PEP", "JNJ", "CL", "UL", "GIS", "KMB", "MDLZ", "COLM", "EL", "MCD",
-                   "PM", "HSY", "CAG", "LRLCF", "KHC", "OR", "DGE", "IMB", "RB", "BN", "7203.T", 
-                   "005930.KS", "066570.KS", "CX", "BABA", "AMZN", "TGT", "WMT", "COST", "TJX", "LOW", 
-                   "NKE", "SBUX", "K"]
 
-print("ORDERED LIST")
+energy_list = ['XOM', 'CVX', 'COP', 'HES', 'OXY', 'EOG', 'MPC', 'PSX', 'VLO', 'ENB', 
+ 'SU', 'CNQ', 'CVE', 'IMO', 'BP', 'EQNR', 'IBE', 'WMB', 'OKE', 'ET', 
+ 'HOU', 'CQP', 'BKR', 'TRGP', 'TGTX', 'AR', 'VLO', 'KMI', 'PPL', 'DUK', 'XEL']
+
+consumer_list = ["PG", "KO", "PEP", "JNJ", "CL", "UL", "GIS", "KMB", "MDLZ", "COLM", "EL", "MCD", 
+ "PM", "HSY", "CAG", "LRLCF", "KHC", "OR", "DGE", "IMB", "RB", "BN", "7203.T", 
+ "005930.KS", "066570.KS", "CX", "BABA", "AMZN", "TGT", "WMT", "COST", "TJX", 
+ "LOW", "NKE", "SBUX", "K"]
+
+industrial_materials = ["LIN", "NEM", "SCCO", "RIO", "VMC", "APD", "DD", "VALE", "XOM", "LMT", 
+ "MMM", "CAT", "DE", "GE", "CSX", "ECL", "DOW", "FCX", "FLS", "JCI", "AME", 
+ "IP", "PKG", "EMR", "X", "GWW", "CNI", "ITW", "HON", "IEX", "RS", "STLD", 
+ "NUE", "VLO", "PHM", "TMO"]
+
+INDUSTRY = 'IndustrialMaterials'
+ticker_list = industrial_materials
+
+
 max_sharpe = max_sharpe_optimization(get_historical_prices(ticker_list),ticker_list)
 sorted_dict = dict(max_sharpe.items())
 sorted_by_values = dict(sorted(sorted_dict.items(), key=lambda item: item[1], reverse=True))
