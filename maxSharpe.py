@@ -6,8 +6,9 @@ import yfinance as yf
 from pypfopt.discrete_allocation import DiscreteAllocation, get_latest_prices
 
 
-def get_historical_prices(assets):
-    return yf.download(assets, period='10y')['Close'].ffill()
+def get_historical_prices(assets,period):
+    valid_tickers = [ticker for ticker in assets if not yf.Ticker(ticker).history(period="1y").empty]
+    return yf.download(valid_tickers, period=period)['Close'].ffill()
 
 def max_sharpe_optimization(df,ticker_list):
     formatted_tickers_views = format_tickers(ticker_list)

@@ -19,11 +19,22 @@ industrial_materials = ["LIN", "NEM", "SCCO", "RIO", "VMC", "APD", "DD", "VALE",
  "IP", "PKG", "EMR", "X", "GWW", "CNI", "ITW", "HON", "IEX", "RS", "STLD", 
  "NUE", "VLO", "PHM", "TMO"]
 
-INDUSTRY = 'IndustrialMaterials'
-ticker_list = industrial_materials
+tech = ["AAPL", "MSFT", "GOOGL", "GOOG", "NVDA", "META", "AMZN", "TSLA", "AMD", "IBM", 
+ "ORCL", "CRM", "INTC", "CSCO", "ADBE", "SAP", "TXN", "AVGO", "QCOM", "NOW", 
+ "ASML", "ZM", "SHOP", "SNOW", "PLTR", "UBER", "SQ", "NET", "ARKK", "TWLO", 
+ "DOCU", "DDOG", "CRWD", "ROKU", "MDB", "PINS", "FSLY", "AI", "BBAI", "SOUN", 
+ "ERIC", "NOK", "INFY", "WIT", "GLBE", "ADSK", "TEAM", "WDAY", "RBLX", "ESTC", 
+ "U", "AFRM", "OKTA", "ZI", "DUOL", "FVRR", "SE", "BIDU", "JD", "BABA", "BYND", 
+ "CHWY", "PRTC.L", "OCDO.L", "AMS", "IFX", "STM", "NXPI", "ROG.SW", "UBI.PA", 
+ "AUTO.L", "XPEV", "LI", "NTES"]
 
 
-max_sharpe = max_sharpe_optimization(get_historical_prices(ticker_list),ticker_list)
+
+INDUSTRY = 'Short_Term_Tech'
+ticker_list = tech
+
+
+max_sharpe = max_sharpe_optimization(get_historical_prices(ticker_list,'1y'),ticker_list)
 sorted_dict = dict(max_sharpe.items())
 sorted_by_values = dict(sorted(sorted_dict.items(), key=lambda item: item[1], reverse=True))
 pprint.pprint(sorted_by_values,sort_dicts=False)
